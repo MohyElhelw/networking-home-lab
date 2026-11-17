@@ -15,7 +15,7 @@ Hands-on networking labs I'm building in Cisco Packet Tracer while studying for 
 | 7 | Wireless network | Access points, WPA2/WPA3 | Planned |
 
 ## Tools
-- Cisco Packet Tracer (running on Fedora Linux)
+- Cisco Packet Tracer (running on Windows and Fedora Linux)
 - Wireshark
 
 ## About me
