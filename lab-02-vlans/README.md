@@ -2,8 +2,6 @@
 
 Builds on [Lab 1](../lab-01-basic-lan/). The flat 192.168.1.0/24 network is split into separate VLANs for staff, students, servers, and switch management. A single router link connects them using router-on-a-stick, and one DHCP server in the server VLAN hands out addresses to every VLAN through DHCP relay.
 
-![Topology](screenshots/topology.png)
-
 ## VLAN and addressing plan
 
 | VLAN | Name | Network | Gateway (R1) | Devices | Switch port | Addressing |
@@ -106,12 +104,28 @@ Line and enable passwords carried over from Lab 1 and are not included here.
 | 7 | | `telnet 192.168.99.11` from PC-01 | ✅ Password prompt, then `S1>` |
 
 ### Screenshots
-![VLANs](screenshots/show-vlan-brief.png)
-![Trunk](screenshots/show-interfaces-trunk.png)
-![Ping blocked before routing](screenshots/ping-blocked.png)
-![Ping routed between VLANs](screenshots/ping-routed.png)
-![DHCP across VLANs](screenshots/dhcp-relay.png)
-![Telnet over management VLAN](screenshots/telnet-mgmt.png)
+
+**Ping blocked between VLANs before routing (step 2)**
+![Ping blocked](screenshots/Screenshot%202026-11-20%20000259.png)
+
+**Trunk on Gig0/1 (step 3)**
+![Trunk](screenshots/Screenshot%202026-11-20%20000436.png)
+
+**Router subinterfaces up (step 4)**
+![R1 interfaces](screenshots/Screenshot%202026-11-20%20000841.png)
+
+**Laptop (VLAN 20) reaching PC-01 (VLAN 10) through the router, TTL=127 (step 5)**
+![Ping routed](screenshots/Screenshot%202026-11-20%20001148.png)
+
+**DHCP across VLANs (step 6B)**
+![DHCP on a PC](screenshots/Screenshot%202026-11-20%20003632.png)
+![DHCP on Laptop0](screenshots/Screenshot%202026-11-20%20003711.png)
+
+**Management VLAN 99 up on S1 (step 7)**
+![S1 interfaces](screenshots/Screenshot%202026-11-20%20004401.png)
+
+**Telnet to S1 over the management VLAN (step 7)**
+![Telnet](screenshots/Screenshot%202026-11-20%20004445.png)
 
 ## What I learned
 - One VLAN = one subnet. Devices in different VLANs can't talk without a router.
