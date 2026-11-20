@@ -7,15 +7,15 @@ Hands-on networking labs I'm building in Cisco Packet Tracer while studying for 
 | # | Lab | Topics | Status |
 |---|---|---|---|
 | 1 | [Basic LAN with DHCP and secured device access](lab-01-basic-lan/) | IP addressing, DHCP, switch management (SVI), console/VTY passwords | ✅ Done |
-| 2 | VLANs and inter-VLAN routing | VLANs, trunking, router-on-a-stick | 🔜 Next |
-| 3 | DHCP and DNS services | DHCP pools, DNS records | Planned |
+| 2 | [VLANs, inter-VLAN routing, and DHCP relay](lab-02-vlans/) | VLANs, 802.1Q trunking, router-on-a-stick, DHCP relay, management VLAN | ✅ Done |
+| 3 | DNS services | DNS records, name resolution | 🔜 Next |
 | 4 | Subnetting plan (VLSM) | Subnetting, address planning | Planned |
 | 5 | Static routing and OSPF | Static routes, OSPF, loopback interfaces | Planned |
 | 6 | Access control lists | Standard and extended ACLs | Planned |
 | 7 | Wireless network | Access points, WPA2/WPA3 | Planned |
 
 ## Tools
-- Cisco Packet Tracer (running on Windows and Fedora Linux)
+- Cisco Packet Tracer (Windows and Fedora Linux)
 - Wireshark
 
 ## About me
