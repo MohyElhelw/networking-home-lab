@@ -2,7 +2,7 @@
 
 A small office LAN built in Cisco Packet Tracer: one router, one switch, two PCs, a laptop and a server. Clients get their IP settings automatically from a DHCP server, and the switch is managed remotely over its own management IP with password-protected access.
 
-![Topology](screenshots/topology.png)
+![Topology](screenshots/topology.png.png)
 
 ## Devices
 
@@ -85,8 +85,8 @@ Real passwords are not included in this repo.
 | Remote access is password-protected | `telnet 192.168.1.11` | Password prompt, then `S1>`; `enable` also asks for a password |
 | Switch interfaces | `show ip interface brief` on S1 | Connected ports and VLAN 1 up/up |
 
-![DHCP result](screenshots/ipconfig.png)
-![Telnet to switch](screenshots/telnet.png)
+![DHCP result](screenshots/ipconfig.png.png)
+![Telnet to switch](screenshots/telnet.png.png)
 
 ## What I learned
 - How to plan an address range so static devices and DHCP clients don't overlap.
