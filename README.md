@@ -21,6 +21,7 @@ Labs on real equipment at my desk.
 |---|-----|--------|--------|
 | HW-1 | [VLANs on a TP-Link TL-SG108E](hw-01-sg108e-vlans/) | 802.1Q VLANs, PVIDs, VLAN isolation testing, ICS/NAT | ✅ Done |
 | HW-2 | [Port mirroring & Wireshark](hw-02-port-mirroring/) | SPAN, packet capture, routing loop troubleshooting, TTL | ✅ Done |
+| HW-3 | [Laptop as a second monitor](hw-03-laptop-second-monitor/) | Sunshine/Moonlight, virtual display driver, troubleshooting with logs & nc | ✅ Done |
 
 ## Tools
 - Cisco Packet Tracer (Windows and Fedora Linux)
