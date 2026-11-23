@@ -86,6 +86,30 @@ Dst: TPLink_41:3f:11 (switch)
 ![Laptop ping](screenshots/laptop-ping.png)
 ![tcpdump on laptop](screenshots/laptop-tcpdump.png)
 
+## Reverse Mirroring: Laptop Captures the PC
+Flipped the mirror so the laptop could watch the PC's port.
+
+| Setting | Value |
+|---------|-------|
+| Mirroring port (destination) | Port 5 (laptop) |
+| Mirrored port (source) | Port 8 (PC), Ingress + Egress |
+
+Before enabling it, checked that the laptop would not route the mirrored copies:
+```
+$ sysctl net.ipv4.ip_forward
+net.ipv4.ip_forward = 0
+```
+
+Then captured on the laptop with `sudo tcpdump -ni enp0s20f0u2c2 icmp` while the PC pinged the switch.
+
+**Result:** the laptop saw the PC ↔ switch pings, a conversation it wasn't part of. Each request and reply appeared **exactly once**, with no loop, even with ICS still running on the PC.
+
+![Reverse mirror – laptop sees PC traffic](screenshots/reverse-mirror-tcpdump.png)
+
+**Why there was no loop this time:** with `ip_forward = 0`, Linux drops packets that aren't addressed to it instead of forwarding them. The PC, with ICS on, had routing enabled and sent every mirrored copy back out. Same switch feature, different destination host, opposite outcome.
+
+**Bonus OS clue:** the PC's pings showed **length 40** (Windows sends 32 bytes of data by default), while the laptop's Linux pings were **length 64** (56 bytes of data). Combined with the starting TTL (Windows 128, Linux 64), packet size is another quick way to tell which OS sent a packet.
+
 ## Troubleshooting Notes
 - **Npcap install broke ICS.** Installing Wireshark upgraded Npcap, which reset the network adapters. The laptop stopped getting a DHCP address (only an `fe80::` link-local showed in `ip -br addr`). Fixed by unchecking and re-checking sharing on the PC's Wi-Fi adapter, then `nmcli device connect` on the laptop.
 - **ICS "select a connection" error.** Re-enabling sharing requires picking the home networking adapter (Ethernet) in the dropdown.
@@ -97,6 +121,7 @@ Dst: TPLink_41:3f:11 (switch)
 - TTL is a loop detector: a value that keeps dropping on the same packet means something is routing it in a circle.
 - Never mirror traffic to a device that routes. It will forward the copies and create a loop.
 - OS fingerprinting hint: Windows starts packets at TTL 128, Linux-based devices at TTL 64.
+- Whether a mirror destination loops depends on the host: check `ip_forward` (Linux) or whether ICS/routing is on (Windows) first.
 - Capturing at both ends (tcpdump on the host, Wireshark via mirror) quickly shows whether a problem is on the wire or inside the host.
 
 ## Cleanup
