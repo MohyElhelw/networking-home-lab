@@ -14,6 +14,13 @@ Hands-on networking labs I'm building in Cisco Packet Tracer while studying for 
 | 6 | Access control lists | Standard and extended ACLs | Planned |
 | 7 | Wireless network | Access points, WPA2/WPA3 | Planned |
 
+## Hardware Labs
+Labs on real equipment at my desk.
+
+| # | Lab | Topics | Status |
+|---|-----|--------|--------|
+| HW-1 | [VLANs on a TP-Link TL-SG108E](hw-01-sg108e-vlans/) | 802.1Q VLANs, PVIDs, VLAN isolation testing, ICS/NAT | ✅ Done |
+
 ## Tools
 - Cisco Packet Tracer (Windows and Fedora Linux)
 - Wireshark
