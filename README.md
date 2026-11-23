@@ -20,6 +20,7 @@ Labs on real equipment at my desk.
 | # | Lab | Topics | Status |
 |---|-----|--------|--------|
 | HW-1 | [VLANs on a TP-Link TL-SG108E](hw-01-sg108e-vlans/) | 802.1Q VLANs, PVIDs, VLAN isolation testing, ICS/NAT | ✅ Done |
+| HW-2 | [Port mirroring & Wireshark](hw-02-port-mirroring/) | SPAN, packet capture, routing loop troubleshooting, TTL | ✅ Done |
 
 ## Tools
 - Cisco Packet Tracer (Windows and Fedora Linux)
